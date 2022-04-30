@@ -9,6 +9,8 @@ const path = require('path');
 app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
 app.use(express.json());
+// define express routes to subfolders
+app.use(express.static('public'));
 
 const { animals } = require('./data/animals.json')
 
@@ -117,6 +119,26 @@ app.post('/api/animals', (req, res) => {
     }
 });
 
+//serve index
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+//serve animals.html
+app.get('/animals', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/animals.html'));
+});
+//serve zookeepers.html
+app.get('/zookeepers', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/zookeepers.html'));
+});
+//wildcard route
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+
 app.listen(PORT, () =>{
     console.log('listening on 3001')
 });
+
+

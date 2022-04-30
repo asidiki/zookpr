@@ -108,6 +108,18 @@
         "hungry"
       ],
       "id": "10"
+    },
+    {
+      "name": "Leo",
+      "species": "shorthair",
+      "diet": "carnivore",
+      "personalityTraits": [
+        "hungry",
+        "anxious",
+        "loving",
+        "goofy"
+      ],
+      "id": "11"
     }
   ]
 }
